@@ -15,6 +15,7 @@ const pokemon = {
         'next Evolution': 'Charmeleon'
     },
     'ditto':{
+        'message':'Oops that pokemon is not available! Dittos information  is provided instead',
         'type':'normal',
         'next Evolution': 'Does not Evolve'
     }
