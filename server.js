@@ -40,6 +40,11 @@ const characters = {
         'portrayed by':'Retta',
         'full name': 'Donna Marie Meagle'
     }
+    ,
+    'jean':{
+        'portrayed by':'Ben Schwatz',
+        'full name': 'Jean-Ralphio Saperstein'
+    }
 }
 
 app.get('/',(request,response)=>{
@@ -51,7 +56,7 @@ app.get('/api/:characterName', (request,response)=>{
     if (characters[characterName]){
         response.json(characters[characterName])
     }
-    else {response.json (characters['ditto'])}
+    else {response.json (characters['jean'])}
 })
 
 app.listen(process.env.PORT || PORT, ()=>{
