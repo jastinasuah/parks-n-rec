@@ -5,19 +5,40 @@ const PORT = 8000
 
 app.use(cors())
 
-const pokemon = {
-    'pikachu':{
-        'type':'electric',
-        'next Evolution': 'Raichu'
+const characters = {
+    'leslie knope':{
+        'portrayed by':'Amy Poehler',
+        'full name': 'Leslie Barbara Knope'
     },
-    'charmander':{
-        'type':'fire',
-        'next Evolution': 'Charmeleon'
+    'ann perkins':{
+        'portrayed by':'Rashida Jones',
+        'full name': 'Ann Meredith Perkins'
     },
-    'ditto':{
-        'message':'Oops that pokemon is not available! Dittos information  is provided instead',
-        'type':'normal',
-        'next Evolution': 'Does not Evolve'
+    'ron swanson':{
+        'portrayed by':'Nick Offerman',
+        'full name': 'Ronald Ulysses "Ron" Swanson'
+    },
+    'ben wyatt':{
+        'portrayed by':'Adam Scott',
+        'full name': 'Sir Benjamin "Ben" Wyatt'
+    },
+    'tom haverford':{
+        'portrayed by':'Aziz Ansari',
+        'full name': 'Thomas Montgomery "Tom" Haverford (born Darwish Sabir Ismail Gani)'
+    },
+    'april ludgate':{
+        'portrayed by':'Aubrey Plaza',
+        'full name': 'April Roberta Ludgate-Dwyer'
+    }
+    ,
+    'jerry gergich':{
+        'portrayed by':'Jim O\'\Heir',
+        'full name': 'Gerald "Garry" Gergich'
+    }
+    ,
+    'donna meagle':{
+        'portrayed by':'Retta',
+        'full name': 'Donna Marie Meagle'
     }
 }
 
@@ -25,12 +46,12 @@ app.get('/',(request,response)=>{
     response.sendFile(__dirname+ '/index.html')
 })
 
-app.get('/api/:pokemonName', (request,response)=>{
-    const pokemonName = request.params.pokemonName.toLowerCase()
-    if (pokemon[pokemonName]){
-        response.json(pokemon[pokemonName])
+app.get('/api/:characterName', (request,response)=>{
+    const characterName = request.params.characterName.toLowerCase()
+    if (characters[characterName]){
+        response.json(characters[characterName])
     }
-    else {response.json (pokemon['ditto'])}
+    else {response.json (characters['ditto'])}
 })
 
 app.listen(process.env.PORT || PORT, ()=>{
